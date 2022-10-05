@@ -1,0 +1,4 @@
+<% 
+std::string message("<h1>HELLO WORLD</h1)");
+response.write(message.c_str());
+%>
