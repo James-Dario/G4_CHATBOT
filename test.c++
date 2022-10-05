@@ -13,7 +13,7 @@ bool choicecheck(std::string & str1, std::string &str2)
 
 //if loan
 void loans(){
-    
+
     cout<<"What would you like to know about LOANS?\n"
     "Please explain:\n"
     "Personal Loans\n"
@@ -27,8 +27,9 @@ void loans(){
 }
 
 //if cards
-void cards(){
+void cards(){       
     cout<<"What would you like to know about BANK CARDS?\n";
+    
 }
 
 //if saving account
