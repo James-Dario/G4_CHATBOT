@@ -11,10 +11,42 @@ bool choicecheck(std::string & str1, std::string &str2)
                                 }));
 }
 
-//function for loans
-void loanfunction(){
+//if loan
+void loans(){
 
 }
+
+//if cards
+void cards(){
+
+}
+
+//if saving account
+void savingaccount(){
+
+}
+
+//if investment
+void investment(){
+
+}
+
+//if insurance
+void insurance(){
+
+}
+
+//if retirementplan
+void retirementplan(){
+
+}
+
+//if remittances
+void remittances(){
+
+}
+
+
 
 int main() {
     int x;
@@ -36,19 +68,19 @@ int main() {
     string numbers[7] = {"Loans","Cards","Saving Account","Investment","Insurance","Retirement Plan","Remittances"};
     
     if(choicecheck(choice,numbers[0])||choice=="1"){//Loans
-        cout<<"one";
+        loans();
     }else if(choicecheck(choice,numbers[1])||choice=="2"){//Cards
-        cout<<"two";
+        cards();
     }else if(choicecheck(choice,numbers[2])||choice=="3"){//Saving Account
-        cout<<"three";
+        savingaccount();
     }else if(choicecheck(choice,numbers[3])||choice=="4"){//Investment
-        cout<<"four";
+        investment();
     }else if(choicecheck(choice,numbers[4])||choice=="5"){//Insurance
-        cout<<"five";
+        insurance();
     }else if(choicecheck(choice,numbers[5])||choice=="6"){//Retirement Plan
-        cout<<"six";
+        retirementplan();
     }else if(choicecheck(choice,numbers[6])||choice=="7"){//Remittances
-        cout<<"seven";
+        remittances();
     }
     else{
         cout<<"I cannot understand please try again.";
