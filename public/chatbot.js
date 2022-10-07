@@ -19,7 +19,7 @@ const renderUserMessage = () => {
     renderMessageElement(userInput, "user");
     txtInput.value = "";
     toggleLoading(false);
-
+    
     setTimeout(()=>{
         renderChatbotResponse(userInput);
         setScrollPos();
