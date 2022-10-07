@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ChatbotDes1-CSS.css">
+    <script src = "chatbot.js" defer></script>
+    <script src = "chatbot-response.js" defer></script>
+    <title>PISO</title>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-header">
+            <div class="logo">
+               <img src="./Assets/PISO Icon.png" alt="PISO Icon"> 
+            </div>
+
+            <div class="title"><b>PISO CHATBOT</b></div>
+        </div>
+
+        <div class="chat-body">
+            <div class="loading hide">
+                <div class="circle c1"></div>
+                <div class="circle c2"></div>
+                <div class="circle c3"></div>
+            </div>
+
+        </div>
+
+        <div class="chat-input">
+            <div class="input-sec">
+                <input type="text" id="txtinput" placeholder = "Type here..." autofocus>
+            </div>
+
+            <div class="send">
+                <img src="./Assets/send-icon.png" alt="send-icon">
+            </div>
+        </div>
+    </div>
+
+    <form>
+        <input type="text" id="input"/>
+        <button id="get">GET</button>
+        <button id="post">POST</button>
+    </form>
+    <div id="reply">
+
+    </div>
+</body>
+
+
+</html>
