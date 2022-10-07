@@ -2,7 +2,17 @@
 const char * askname(char * name);
 const char * question(char * inputuser);
 void askbackground(char * inputuser);
-void askchoice(char * inputuser);
+const char * askchoice(char * inputuser);
+const char * cardChoi(char * inputuser);
+const char * saviChoi(char * inputuser);
+const char * investChoi(char * inputuser);
+const char * insureChoi(char * inputuser);
+const char * retireChoi(char * inputuser);
+const char * remitChoi(char * inputuser);
+
+
+const char * loanChoi(char * inputuser);
+
 
 int currentstage = 0;
 char * background = "";
@@ -19,7 +29,7 @@ const char * mainfunc(char * inputuser, int stage){
     else if (stage == 2){
         return question(inputuser);
     }else if (stage == 3){
-        askchoice(inputuser);
+        return askchoice(inputuser);
     }else if(stage == 4){
 
         return maincchcoice;
@@ -60,23 +70,32 @@ void askbackground(char * inputuser){
 
 }
 
-void askchoice(char * inputuser){
+const char * askchoice(char * inputuser){
 
     if(strcmp(inputuser,"1")==0){
         maincchcoice="loans";
+        return loanChoi(inputuser);
     }else if (strcmp(inputuser,"2")==0){
-        maincchcoice="cards";    
+        maincchcoice="cards";
+        return cardChoi(inputuser);
     }else if (strcmp(inputuser,"3")==0){
         maincchcoice="savings";    
+        return saviChoi(inputuser);
     }else if (strcmp(inputuser,"4")==0){
-        maincchcoice="investments";    
+        maincchcoice="investments";   
+        return investChoi(inputuser); 
     }else if (strcmp(inputuser,"5")==0){
-        maincchcoice="insurance";    
+        maincchcoice="insurance";  
+        return insureChoi(inputuser);  
     }else if (strcmp(inputuser,"6")==0){
         maincchcoice="retirement";    
+        return retireChoi(inputuser);
     }else if (strcmp(inputuser,"7")==0){
         maincchcoice="remittances";    
+        return remitChoi(inputuser);
     }
+
+    return "test";
 }
 
 const char * loanChoi(char * inputuser){
@@ -110,6 +129,6 @@ const char * retireChoi(char * inputuser){
 }
 
 const char * remitChoi(char * inputuser){
-    char * output = "I'm happy to help, what about <b>REMITTANCES</b> that you want to learn more about?📨 <br><i>Please explain:</i></br> <br>1. What is a Remittance?</br> <br>2. How can I make a remittance??</br> <br>3. Requirements</br> <br><br><i>OTHERS:</i></br></br> <br><b>4. What would you recommend for me?</b></br>";
+    char * output = "I'm happy to help, what about <b>REMITTANCES</b> that you want to learn more about?📨 <br><i>Please explain:</i></br> <br>1. What is a Remittance?</br> <br>2. How can I make a remittance?</br> <br>3. Requirements</br> <br><br><i>OTHERS:</i></br></br><br><b>4. What would you recommend for me?</b></br>";
     return output;
 }
