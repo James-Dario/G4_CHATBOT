@@ -13,7 +13,14 @@ const char * mainfunc(char * inputuser, int stage){
     }
     else if (stage == 2){
         return question(inputuser);
+    }else if (stage == 3){
+        if(strcmp(inputuser,"1")==0){
+            return "A";
+        }else{
+            return  "B";
+        }
     }
+    
     
     return "Hello";
 }
@@ -33,14 +40,4 @@ const char * question(char * inputuser){
 }
 
 
-const char * loans(char * str1, int stage){
 
-    
-
-    return "loans";
-}
-
-const char * cards(char * str1){
-
-    return "card";
-}
