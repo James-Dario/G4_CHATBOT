@@ -33,7 +33,7 @@ const renderChatbotResponse = (userInput) =>{
         //const res = getChatbotResponse(userInput);
         renderMessageElement(greply);
         greply = ""
-        console.log(stage   )
+        console.log(stage)
 };
 
 const renderMessageElement = (txt, type) => {       
@@ -87,7 +87,7 @@ async function getInfo(e){
     console.log(res)
     const data = await res.json()
     greply = data.info
-}
+}   
 
 
 async function postInfo(e){
@@ -99,7 +99,7 @@ async function postInfo(e){
             "content-Type":'application/json'
         },
         body:JSON.stringify({
-            parcel:txtInput.value    
+            parcel:txtInput.value
         })
     })
 }

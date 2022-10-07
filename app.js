@@ -3,14 +3,19 @@ const app = express()
 const port = 8383
 
 var userchat = "";
+var stagecount = 0;
 
 app.use(express.static('public'))
 app.use(express.json())
 
 
 app.get('/info', (req,res)=>{
-    const answer = lib.loans(userchat,1);
-    res.status(200).json({info: answer})
+    if(userchat != "exit"){
+        stagecount = stagecount + 1;
+        const answer = lib.mainfunc(userchat,stagecount);
+        res.status(200).json({info: answer})
+    }
+    
 })
 
 
@@ -35,6 +40,9 @@ app.listen(port,() => console.log('server has started on port: ${port}'))
 const ffi = require("ffi-napi");
 const lib = new ffi.Library("./cpp/dll/main", {
     "loans": [
+        "string", ["string","int"]
+    ],
+    "mainfunc":[
         "string", ["string","int"]
     ]
 });
