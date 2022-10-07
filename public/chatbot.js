@@ -30,7 +30,7 @@ const renderUserMessage = () => {
 };
 
 const renderChatbotResponse = (userInput) =>{
-        const res = getChatbotResponse(userInput);
+        //const res = getChatbotResponse(userInput);
         renderMessageElement(greply);
         greply = ""
 };
@@ -41,18 +41,18 @@ const renderMessageElement = (txt, type) => {
         className = "chatbot-message";
     }
     const messageElement = document.createElement("div");
-    const txtNode = document.createTextNode(txt);
+    const txtNode = document.createTextNode(txt);   
     messageElement.classList.add(className);
     messageElement.append(txtNode);
     chatBody.append(messageElement);
 
 };
 
-const getChatbotResponse = (userInput) => {
-    return responseObj[userInput] == undefined
-    ? "Nudaw"
-    : responseObj[userInput];
-};
+// const getChatbotResponse = (userInput) => {
+//     return responseObj[userInput] == undefined
+//     ? "Nudaw"
+//     : responseObj[userInput];
+// };
 
 const setScrollPos = () =>{
     if(chatBody.scrollHeight>0){
