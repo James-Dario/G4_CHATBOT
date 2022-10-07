@@ -152,7 +152,7 @@ const char * cardChoi(char * inputuser){
 }
 
 const char * saviChoi(char * inputuser){
-    char * output = "I'm happy to help, what about <b>SAVINGS ACCOUNTS</b> that you want to learn more about?🏧<br><br> <i>Please explain:</i><br> 1. What are Savings Accounts?<br> 2. How do I set up a Savings Account?<br> 3. Requirements<br><br> <i>OTHERS:</i><br> <b>4. What would you recommend for me?<br>";
+    char * output = "I'm happy to help, what about <b>SAVINGS ACCOUNTS</b> that you want to learn more about?🏧<br><br> <i>Please explain:</i><br> 1. What are Savings Accounts?<br> 2. How do I set up a Savings Account?<br> 3. Requirements<br><br> <i>OTHERS:</i><br> 4. What would you recommend for me?<br>";
     return output;
 }
 
