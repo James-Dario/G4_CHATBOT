@@ -33,19 +33,21 @@ const renderChatbotResponse = (userInput) =>{
         //const res = getChatbotResponse(userInput);
         renderMessageElement(greply);
         greply = ""
+        console.log(stage   )
 };
 
-const renderMessageElement = (txt, type) => {
+const renderMessageElement = (txt, type) => {       
     let className = "user-message";
+    
     if(type!=='user'){
         className = "chatbot-message";
     }
     const messageElement = document.createElement("div");
-    const txtNode = document.createTextNode(txt);   
-    messageElement.classList.add(className);
-    messageElement.append(txtNode);
-    chatBody.append(messageElement);
-
+    //const txtNode = document.createTextNode(txt); 
+    messageElement.innerHTML = txt;   
+    messageElement.classList.add(className);    
+    //messageElement.append(txtNode);     
+    chatBody.append(messageElement)
 };
 
 // const getChatbotResponse = (userInput) => {

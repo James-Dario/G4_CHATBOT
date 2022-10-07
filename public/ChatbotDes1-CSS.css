@@ -112,9 +112,8 @@ body{
     background: #ccc;
     color: black;
     font-weight: 400;
-    align-self: flex-start;
+    align-self: flex-start; 
     border-radius: 10px 10px 10px 1px;
-
     transform: translate(-50%);
     animation: fade-in-left .3s ease-in-out both;
     opacity: 0;
