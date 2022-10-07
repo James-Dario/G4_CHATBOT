@@ -48,13 +48,17 @@ void askbackground(char * inputuser){
 
     if(strcmp(inputuser,"1")==0 ){
         background="student";
-    }else if (strcmp(inputuser,"2")==0){
+    }
+    else if (strcmp(inputuser,"2")==0){
         background="farmer";    
-    }else if (strcmp(inputuser,"3")==0){
+    }
+    else if (strcmp(inputuser,"3")==0){
         background="retiree";    
-    }else if (strcmp(inputuser,"4")==0){
+    }
+    else if (strcmp(inputuser,"4")==0){
         background="working";    
-    }else if (strcmp(inputuser,"5")==0){
+    }
+    else if (strcmp(inputuser,"5")==0){
         background="others";    
     }
 
@@ -64,17 +68,23 @@ void askchoice(char * inputuser){
 
     if(strcmp(inputuser,"1")==0){
         maincchcoice="loans";
-    }else if (strcmp(inputuser,"2")==0){
+    }
+    else if (strcmp(inputuser,"2")==0){
         maincchcoice="cards";    
-    }else if (strcmp(inputuser,"3")==0){
+    }
+    else if (strcmp(inputuser,"3")==0){
         maincchcoice="savings";    
-    }else if (strcmp(inputuser,"4")==0){
+    }
+    else if (strcmp(inputuser,"4")==0){
         maincchcoice="investments";    
-    }else if (strcmp(inputuser,"5")==0){
+    }
+    else if (strcmp(inputuser,"5")==0){
         maincchcoice="insurance";    
-    }else if (strcmp(inputuser,"6")==0){
+    }
+    else if (strcmp(inputuser,"6")==0){
         maincchcoice="retirement";    
-    }else if (strcmp(inputuser,"7")==0){
+    }
+    else if (strcmp(inputuser,"7")==0){
         maincchcoice="remittances";    
     }
 }
@@ -110,6 +120,6 @@ const char * retireChoi(char * inputuser){
 }
 
 const char * remitChoi(char * inputuser){
-    char * output = "I'm happy to help, what about <b>REMITTANCES</b> that you want to learn more about?📨 <br><i>Please explain:</i></br> <br>1. What is a Remittance?</br> <br>2. How can I make a remittance??</br> <br>3. Requirements</br> <br><br><i>OTHERS:</i></br></br> <br><b>4. What would you recommend for me?</b></br>";
+    char * output = "I'm happy to help, what about <b>REMITTANCES</b> that you want to learn more about?📨 <br><i>Please explain:</i></br> <br>1. What is a Remittance?</br> <br>2. How can I make a remittance?</br> <br>3. Requirements</br> <br><br><i>OTHERS:</i></br></br> <br><b>4. What would you recommend for me?</b></br>";
     return output;
 }
