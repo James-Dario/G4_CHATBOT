@@ -7,9 +7,6 @@ sendB.addEventListener("click", getInfo);
 sendB.addEventListener("click", postInfo);
 sendB.addEventListener("click", () => renderUserMessage());
 
-
-
-
 txtInput.addEventListener("keyup", ()=>{
     if(event.keyCode === 13){
         renderUserMessage();

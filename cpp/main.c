@@ -1,6 +1,6 @@
 #include <string.h>
 const char * askname(char * name);
-const char * askjob(char * input);
+const char * question(char * inputuser);
 
 int currentstage = 0;
 //gcc -c -Wall -Werror -fpic main.c
@@ -8,16 +8,13 @@ int currentstage = 0;
 
 const char * mainfunc(char * inputuser, int stage){
 
-    currentstage = stage;
-    if(stage == currentstage){
-        //char * output = askname(inputuser);
+    if(stage == 1){
         return askname(inputuser); 
-    }else if (stage == currentstage){
-        return askjob(inputuser);
     }
-
-
-
+    else if (stage == 2){
+        return question(inputuser);
+    }
+    
     return "Hello";
 }
 
@@ -26,14 +23,15 @@ const char * mainfunc(char * inputuser, int stage){
 
 const char * askname(char * name){
 
-    char * output= "in which group do you belong? Please enter the number besides your answer. <br>1. I'm a STUDENT📚 <br> 2. I'm a FARMER👩‍🌾👨‍🌾<br>3. I'm a RETIREE👩‍🦳👨‍🦳<br>4. I'm a WORKING INDIVIDUAL👜<br>5. Other<br>";
+    char * output= ". In which group do you belong? <i>Please enter the number besides your answer.</i> <br>1. I'm a <b>STUDENT</b>📚 <br> 2. I'm a <b>FARMER👩‍🌾👨‍🌾</b><br>3. I'm a <b>RETIREE👩‍🦳👨‍🦳</b><br>4. I'm a <b>WORKING INDIVIDUAL👜</b><br>5. <b>Others</b><br>";
     return output;
 }
 
-const char * askjob(char * input){
-
-    return input;
+const char * question(char * inputuser){
+    char * output = "What do you want to know? <i>Please enter the number besides your answer.</i> <br>1. LOANS 💸</br> <br>2. CARDS💳</br> <br>3. SAVINGS ACCOUNT🏧</br> <br>4. INVESTMENTS💰</br> <br>5. INSURANCES📃</br> <br>6. RETIREMENT PLANS👴👵</br> <br>7. REMITTANCES📨</br>";
+    return output;
 }
+
 
 const char * loans(char * str1, int stage){
 
