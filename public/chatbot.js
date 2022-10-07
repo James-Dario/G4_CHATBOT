@@ -32,6 +32,7 @@ const renderUserMessage = () => {
 const renderChatbotResponse = (userInput) =>{
         const res = getChatbotResponse(userInput);
         renderMessageElement(greply);
+        greply = ""
 };
 
 const renderMessageElement = (txt, type) => {
@@ -73,9 +74,7 @@ const reply = document.getElementById('reply')
 var stage = 0;
 var greply = "";
 
-const baseUrl = 'http://localhost:8383/'
-//postBtn.addEventListener('click', getInfo)
-//postBtn.addEventListener('click', postInfo)
+const baseUrl = 'http://localhost:8383/'        
 
 async function getInfo(e){
     stage = stage + 1;
@@ -85,7 +84,6 @@ async function getInfo(e){
     })
     console.log(res)
     const data = await res.json()
-    reply.innerHTML = data.info
     greply = data.info
 }
 
