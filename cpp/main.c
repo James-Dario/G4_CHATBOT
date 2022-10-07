@@ -17,7 +17,7 @@ const char * loanChoi(char * inputuser);
 int currentstage = 0;
 char * background = "";
 char * username = "";
-char * maincchcoice = "";
+char * mainChoi = "";
 //gcc -c -Wall -Werror -fpic main.c
 //gcc -shared -o ./dll/main.dll main.o
 
@@ -28,11 +28,12 @@ const char * mainfunc(char * inputuser, int stage){
     }
     else if (stage == 2){
         return question(inputuser);
-    }else if (stage == 3){
+    }
+    else if (stage == 3){
         return askchoice(inputuser);
-    }else if(stage == 4){
-
-        return maincchcoice;
+    }
+    else if(stage == 4){
+        return mainChoi;
     }
     
     return "Hello";
@@ -43,7 +44,7 @@ const char * mainfunc(char * inputuser, int stage){
 
 const char * askname(char * inputname){
     username = inputname;
-    char * output= ". In which group do you belong? <i>Please enter the number besides your answer.</i> <br>1. I'm a <b>STUDENT</b>📚 <br> 2. I'm a <b>FARMER👩‍🌾👨‍🌾</b><br>3. I'm a <b>RETIREE👩‍🦳👨‍🦳</b><br>4. I'm a <b>WORKING INDIVIDUAL👜</b><br>5. <b>Others</b><br>";
+    char * output= ". In which group do you belong? <i>Please enter the number besides your answer.</i> <br>1. I'm a <b>STUDENT</b>📚 <br> 2. I'm a <b>FARMER👩‍🌾👨‍🌾</b><br>3. I'm a <b>RETIREE👩‍🦳👨‍🦳</b><br>4. I'm a <b>WORKING INDIVIDUAL👜</b>";
     return output;
 }
 
@@ -68,34 +69,30 @@ void askbackground(char * inputuser){
     else if (strcmp(inputuser,"4")==0){
         background="working";    
     }
-    else if (strcmp(inputuser,"5")==0){
-        background="others";    
-    }
-
 }
 
 const char * askchoice(char * inputuser){
 
     if(strcmp(inputuser,"1")==0){
-        maincchcoice="loans";
+        mainChoi="loans";
         return loanChoi(inputuser);
     }else if (strcmp(inputuser,"2")==0){
-        maincchcoice="cards";
+        mainChoi="cards";
         return cardChoi(inputuser);
     }else if (strcmp(inputuser,"3")==0){
-        maincchcoice="savings";    
+        mainChoi="savings";    
         return saviChoi(inputuser);
     }else if (strcmp(inputuser,"4")==0){
-        maincchcoice="investments";   
+        mainChoi="investments";   
         return investChoi(inputuser); 
     }else if (strcmp(inputuser,"5")==0){
-        maincchcoice="insurance";  
+        mainChoi="insurance";  
         return insureChoi(inputuser);  
     }else if (strcmp(inputuser,"6")==0){
-        maincchcoice="retirement";    
+        mainChoi="retirement";    
         return retireChoi(inputuser);
     }else if (strcmp(inputuser,"7")==0){
-        maincchcoice="remittances";    
+        mainChoi="remittances";    
         return remitChoi(inputuser);
     }
 
@@ -135,4 +132,141 @@ const char * retireChoi(char * inputuser){
 const char * remitChoi(char * inputuser){
     char * output = "I'm happy to help, what about <b>REMITTANCES</b> that you want to learn more about?📨 <br><i>Please explain:</i></br> <br>1. What is a Remittance?</br> <br>2. How can I make a remittance?</br> <br>3. Requirements</br> <br><br><i>OTHERS:</i></br></br><br><b>4. What would you recommend for me?</b></br>";
     return output;
+}
+
+const char * loanAns(char * inputuser){
+    char * output = "";
+    if(strcmp(inputuser, "1")==0){
+        output = "";
+    }else if(strcmp(inputuser, "2")==0){
+        output = "";
+    }else if(strcmp(inputuser, "3")==0){
+        output = "";
+    }else if(strcmp(inputuser, "4")==0){
+        output = "";
+    }else if(strcmp(inputuser, "5")==0){
+        output = "";
+    }else if(strcmp(inputuser, "6")==0){
+        //output = "";
+    }
+    return output;
+}
+
+const char * cardsAns(char * inputuser){
+    char * output = "";
+    if(strcmp(inputuser, "1")==0){
+        output = "";
+    }else if(strcmp(inputuser, "2")==0){
+        output = "";
+    }else if(strcmp(inputuser, "3")==0){
+        output = "";
+    }else if(strcmp(inputuser, "4")==0){
+        output = "";
+    }else if(strcmp(inputuser, "5")==0){
+        //output = "";
+    }
+    return output;
+}
+
+const char * saviAns(char * inputuser){
+    char * output = "";
+    if(strcmp(inputuser, "1")==0){
+        output = "";
+    }else if(strcmp(inputuser, "2")==0){
+        output = "";
+    }else if(strcmp(inputuser, "3")==0){
+        output = "";
+    }else if(strcmp(inputuser, "4")==0){
+        //output = "";
+    }
+    return output;
+}
+
+const char * investAns(char * inputuser){
+    char * output = "";
+    if(strcmp(inputuser, "1")==0){
+        output = "";
+    }else if(strcmp(inputuser, "2")==0){
+        output = "";
+    }else if(strcmp(inputuser, "3")==0){
+        //output = "";
+    }
+    return output;
+}
+
+const char * insureAns(char * inputuser){
+    char * output = "";
+    if(strcmp(inputuser, "1")==0){
+        output = "";
+    }else if(strcmp(inputuser, "2")==0){
+        output = "";
+    }else if(strcmp(inputuser, "3")==0){
+        //output = "";
+    }
+    return output;
+}
+
+const char * retireAns(char * inputuser){
+    char * output = "";
+    if(strcmp(inputuser, "1")==0){
+        output = "";
+    }else if(strcmp(inputuser, "2")==0){
+        output = "";
+    }else if(strcmp(inputuser, "3")==0){
+        //output = "";
+    }
+    return output;
+}
+
+const char * remitAns(char * inputuser){
+    char * output = "";
+    if(strcmp(inputuser, "1")==0){
+        output = "";
+    }else if(strcmp(inputuser, "2")==0){
+        output = "";
+    }else if(strcmp(inputuser, "3")==0){
+        output = "";
+    }else if(strcmp(inputuser, "4")==0){
+        //output = "";
+    }
+    return output;
+}
+
+const char * recomm(char * inputuser){
+    char * output = "";
+    if(strcmp(background, "student")==0){
+        
+    }
+    else if(strcmp(background, "farmer")==0){
+
+    }
+    else if(strcmp(background, "working")==0){
+
+    }
+    else if(strcmp(background, "retiree")==0){
+
+    }
+    return output;
+}
+
+const char * recomStud(char * inputuser){
+    char * output = "";
+    if(strcmp(mainChoi, "loans")==0){
+        output = "";
+    }
+    else if(strcmp(mainChoi, "cards")==0){
+        output = "";
+    }
+    else if(strcmp(mainChoi, "investments")==0){
+        output = "";
+    }
+    else if(strcmp(mainChoi, "insurance")==0){
+        output = "";
+    }
+    else if(strcmp(mainChoi, "retirement")==0){
+        output = "";
+    }
+    else if(strcmp(mainChoi, "remittances")==0){
+        output = "";
+    }
 }
