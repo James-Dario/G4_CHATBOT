@@ -10,6 +10,8 @@ txtInput.addEventListener("keyup", ()=>{
         renderUserMessage();
     }
 });
+
+//
 const renderUserMessage = () => {
     const userInput = txtInput.value;
     renderMessageElement(userInput, "user");
@@ -38,7 +40,6 @@ const renderMessageElement = (txt, type) => {
     messageElement.classList.add(className);
     messageElement.append(txtNode);
     chatBody.append(messageElement);
-
 };
 
 const getChatbotResponse = (userInput) => {
