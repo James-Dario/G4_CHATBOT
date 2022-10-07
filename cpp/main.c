@@ -39,8 +39,10 @@ char * mainChoi = "";
 
 const char * mainfunc(char * inputuser, int stage){
 
-    
+
+
     if(stage == 1){
+        username = inputuser;
         return askname(inputuser); 
     }
     else if (stage == 2){
@@ -49,11 +51,8 @@ const char * mainfunc(char * inputuser, int stage){
     else if (stage == 3){
         return askchoice(inputuser);
     }
-    else if(stage == 4){
+    else if(stage >= 4){
         return getquestion(inputuser);
-    }
-    else if(stage == 5){
-        return askchoice(inputuser);
     }
     
     return "Hello";
@@ -64,7 +63,7 @@ const char * mainfunc(char * inputuser, int stage){
 
 const char * askname(char * inputname){
     username = inputname;
-    char * output= ". \"In which group do you belong? <i>Please enter the number besides your answer.</i> <br>1. I'm a <b>STUDENT</b>📚 <br> 2. I'm a <b>FARMER👩‍🌾👨‍🌾</b><br>3. I'm a <b>RETIREE👩‍🦳👨‍🦳</b><br>4. I'm a <b>WORKING INDIVIDUAL👜</b>";
+    char * output= "Which group best represents you? <i>Please enter the number besides your answer.</i> <br>1. I'm a <b>STUDENT</b>📚 <br> 2. I'm a <b>FARMER👩‍🌾👨‍🌾</b><br>3. I'm a <b>RETIREE👩‍🦳👨‍🦳</b><br>4. I'm a <b>WORKING INDIVIDUAL👜</b>";
     return output;
 }
 
@@ -91,6 +90,8 @@ const char * getquestion(char * inputuser){
         return retireAns(inputuser);
     }else if (strcmp(mainChoi,"remittances")==0){
         return remitAns(inputuser);
+    }else{
+        return askchoice(inputuser);
     }
 
     return "test";

@@ -4,6 +4,7 @@ const port = 8383
 
 var userchat = "";
 var stagecount = 0;
+var temp = "";
 
 app.use(express.static('public'))
 app.use(express.json())
@@ -11,14 +12,18 @@ app.use(express.json())
 
 app.get('/info', (req,res)=>{
     if(userchat != "exit"){
-        if(userchat != "back"){
-            stagecount = stagecount + 1;
-        }else{
+        if(userchat === "back" || userchat === "yes"){
             stagecount = stagecount - 1;
+            const answer = lib.mainfunc(temp,stagecount);
+            res.status(200).json({info: answer})
+        }else{
+            stagecount = stagecount + 1;
+            console.log(stagecount);
+            temp = userchat;
+            const answer = lib.mainfunc(userchat,stagecount);
+            res.status(200).json({info: answer})
         }
-        
-        const answer = lib.mainfunc(userchat,stagecount);
-        res.status(200).json({info: answer})
+
     }
     
 })

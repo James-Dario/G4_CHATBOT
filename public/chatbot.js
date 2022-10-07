@@ -3,8 +3,9 @@ const txtInput = document.querySelector("#txtinput");
 const sendB = document.querySelector(".send");
 const loadingElement = document.querySelector(".loading");
 
-sendB.addEventListener("click", getInfo);
+
 sendB.addEventListener("click", postInfo);
+sendB.addEventListener("click", getInfo);
 sendB.addEventListener("click", () => renderUserMessage());
 
 
@@ -13,6 +14,8 @@ txtInput.addEventListener("keyup", ()=>{
         renderUserMessage();
     }
 });
+
+var nameuser = "";
 
 const renderUserMessage = () => {
     const userInput = txtInput.value;
@@ -31,7 +34,17 @@ const renderChatbotResponse = (userInput) =>{
         //const res = getChatbotResponse(userInput);
         renderMessageElement(greply);
         greply = ""
+
+
         console.log(stage)
+        if(stage == 4){
+            const messageElement = document.createElement("div");
+            //const txtNode = document.createTextNode(txt); 
+            messageElement.innerHTML = "Do you want to continue?";   
+            messageElement.classList.add('chatbot-message');    
+            //messageElement.append(txtNode);     
+            chatBody.append(messageElement)
+        }
 };
 
 const renderMessageElement = (txt, type) => {       
@@ -40,12 +53,24 @@ const renderMessageElement = (txt, type) => {
     if(type!=='user'){
         className = "chatbot-message";
     }
-    const messageElement = document.createElement("div");
-    //const txtNode = document.createTextNode(txt); 
-    messageElement.innerHTML = txt;   
-    messageElement.classList.add(className);    
-    //messageElement.append(txtNode);     
-    chatBody.append(messageElement)
+
+    if(stage == 1 && type !=='user'){
+        const messageElement = document.createElement("div");
+        //const txtNode = document.createTextNode(txt); 
+        messageElement.innerHTML = "Hi, "+nameuser +"! "+ txt;
+        messageElement.classList.add(className);    
+        //messageElement.append(txtNode);     
+        chatBody.append(messageElement)
+    }else{
+        const messageElement = document.createElement("div");
+        //const txtNode = document.createTextNode(txt); 
+        messageElement.innerHTML = txt;   
+        messageElement.classList.add(className);    
+        //messageElement.append(txtNode);     
+        chatBody.append(messageElement)
+    }
+
+
 };
 
 // const getChatbotResponse = (userInput) => {
@@ -76,8 +101,17 @@ var greply = "";
 
 const baseUrl = 'http://localhost:8383/'        
 
+
 async function getInfo(e){
-    stage = stage + 1;
+    if (txtInput.value === "back"|| txtInput.value === "yes"){
+        stage = stage - 1;
+    }else{
+        stage = stage + 1;
+        if(stage ==1){
+            nameuser = txtInput.value;
+        }
+    }
+    
     e.preventDefault()
     const res = await fetch(baseUrl+'info/',{
         method:'GET'
@@ -85,6 +119,8 @@ async function getInfo(e){
     console.log(res)
     const data = await res.json()
     greply = data.info
+
+    
 }   
 
 
