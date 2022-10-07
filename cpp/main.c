@@ -2,19 +2,20 @@
 const char * askname(char * name);
 const char * askjob(char * input);
 
-
+int currentstage = 0;
 //gcc -c -Wall -Werror -fpic main.c
 //gcc -shared -o ./dll/main.dll main.o
 
 const char * mainfunc(char * inputuser, int stage){
 
-    if(stage == 1){
+    currentstage = stage;
+    if(stage == currentstage){
         //char * output = askname(inputuser);
         return askname(inputuser); 
-    }else if (stage == 2){
+    }else if (stage == currentstage){
         return askjob(inputuser);
     }
-    
+
 
 
     return "Hello";
