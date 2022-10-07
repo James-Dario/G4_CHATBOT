@@ -28,6 +28,8 @@ const char * recominsure(char * inputuser);
 const char * recomretire(char * inputuser);
 const char * recomremit(char * inputuser);
 
+const char * getquestion(char * inputuser);
+
 int currentstage = 0;
 char * background = "";
 char * username = "";
@@ -37,6 +39,7 @@ char * mainChoi = "";
 
 const char * mainfunc(char * inputuser, int stage){
 
+    
     if(stage == 1){
         return askname(inputuser); 
     }
@@ -47,7 +50,10 @@ const char * mainfunc(char * inputuser, int stage){
         return askchoice(inputuser);
     }
     else if(stage == 4){
-        return mainChoi;
+        return getquestion(inputuser);
+    }
+    else if(stage == 5){
+        return askchoice(inputuser);
     }
     
     return "Hello";
@@ -66,6 +72,28 @@ const char * question(char * inputuser){
     char * output = "What do you want to know? <i>Please enter the number besides your answer.</i> <br>1. LOANS 💸</br> <br>2. CARDS💳</br> <br>3. SAVINGS ACCOUNT🏧</br> <br>4. INVESTMENTS💰</br> <br>5. INSURANCES📃</br> <br>6. RETIREMENT PLANS👴👵</br> <br>7. REMITTANCES📨</br>";
     askbackground(inputuser);
     return output;
+}
+
+
+const char * getquestion(char * inputuser){
+
+    if(strcmp(mainChoi,"loans")==0){
+        return loanAns(inputuser);
+    }else if (strcmp(mainChoi,"cards")==0){
+        return cardsAns(inputuser);
+    }else if (strcmp(mainChoi,"savings")==0){
+        return saviAns(inputuser);
+    }else if (strcmp(mainChoi,"investments")==0){
+        return investAns(inputuser);
+    }else if (strcmp(mainChoi,"insurance")==0){
+        return insureAns(inputuser);
+    }else if (strcmp(mainChoi,"retirement")==0){
+        return retireAns(inputuser);
+    }else if (strcmp(mainChoi,"remittances")==0){
+        return remitAns(inputuser);
+    }
+
+    return "test";
 }
 
 
@@ -161,7 +189,7 @@ const char * loanAns(char * inputuser){
     }else if(strcmp(inputuser, "5")==0){
         output = "<b>Tired of doing the math in handling your loans or don’t know how to compute your fees? <br>PISO is here to help you. </b><br><br>Did you know that there are numerous loan calculators out there that can help you with your loan decision? <br>Loan calculators can assist you in calculating the monthly payments for various kinds of loans like mortgages, <br>car loans, personal loans, etc. Additionally, they can assist you determine how much you can borrow based on <br>your income and other variables.<br>Land Bank Users can use the link below for their housing loan calculator: <br><br><a href = \"https://www.landbank.com/housing-loan-calculator\">Land Bank of the Philippines Housing Loan Calculator</a><br><br>For BDO Customers click the link below to access their online loan calculator:<br><br><a href = \"https://www.bdo.com.ph/personal/loans/online-calculator\">BDO Loan Calculator </a><br><br>Metrobank also has an online calculator for home, car, and personal loan:<br><br><a href = \"https://mcola.metrobank.com.ph/car-loan/loan-calculator\">Metrobank Car Loan Calculator</a><br><a href = \"https://www.metrobank.com.ph/upgrade/personal-loan\">Metrobank Personal Loan Calculator</a><br><a href = \"https://www.metrobank.com.ph/upgrade/home-loan\">Metrobank Housing Loan Calculator </a><br>";
     }else if(strcmp(inputuser, "6")==0){
-        //output = "";
+        return recomloans(inputuser);
     }
     return output;
 }
@@ -177,7 +205,7 @@ const char * cardsAns(char * inputuser){
     }else if(strcmp(inputuser, "4")==0){
         output = "A <b>bank card</b> is any card issued against a depository account, such as a debit card or an ATM card. Sometimes, the <br>term is also used to refer to <b>Visa</b> and <b>MasterCard credit cards</b>, which are likewise issued by banks but are not directly <br>tied to a depository account. Frequently, bank cards are linked to checking accounts so that funds issued to pay <br>purchases will be deducted from these accounts. When used at an ATM, bank cards could also provide access to <br>other sorts of accounts, such as a savings account. This could be done for purposes such as checking account balances<br>, making deposits, or transferring funds across accounts.";
     }else if(strcmp(inputuser, "5")==0){
-        //output = "";
+        return recomcards(inputuser);
     }
     return output;
 }
@@ -191,7 +219,7 @@ const char * saviAns(char * inputuser){
     }else if(strcmp(inputuser, "3")==0){
         output = "You must visit the bank in person to open an account. The requirements may differ by bank; therefore, it is advisable <br>to consult or visit the bank's website beforehand. However, most banks require the following:<br><ul><li>A <b>valid ID</b> with your photo and clearly displayed information. The identification document could be a passport, <br>driver's license, major credit card, or any other legally issued ID. Despite the fact that the central bank has decreased <br>the number of required IDs from two to one, many banks continue to request two forms of identification.</li><li>Two identification photos (often 1x1 or passport size).</li><li>Proof of address</li><li>A bank-specific minimum starting deposit </li></ul>For more information about some bank-specific requirements and guidelines for opening a saving account, <br>please refer to the provided links below: <br><br><a href = \"https://www.landbank.com/cards/atm-savings-account\">Land Bank of the Philippines Savings Account</a><a href = \"https://www.bdo.com.ph/personal/accounts/peso-savings-account\">BDO Savings Account Requirements</a><a href = \"https://www.metrobank.com.ph/save/savings\">Metrobank Open a Savings Account Requirements</a><b> PISO is here for you while you’re saving to secure your future! </b>";
     }else if(strcmp(inputuser, "4")==0){
-        //output = "";
+        return recomsavings(inputuser);
     }
     return output;
 }
@@ -203,7 +231,7 @@ const char * investAns(char * inputuser){
     }else if(strcmp(inputuser, "2")==0){
         output = "";
     }else if(strcmp(inputuser, "3")==0){
-        //output = "";
+        return recominvest(inputuser);
     }
     return output;
 }
@@ -215,7 +243,7 @@ const char * insureAns(char * inputuser){
     }else if(strcmp(inputuser, "2")==0){
         output = "<b><i>As your friend in finance, PISO highly recommends that you get yourself an insurance. </i></b>There is no doubt that you will have a <b>greater sense of security</b> <br>if you and your loved ones are financially secured against any kind <br>of unforeseen circumstances. Uncertainties in life, such as an untimely <br>death or a medical emergency, could occur at any time. <br>These events also involve automobile accidents and property damage. <br>Experiencing the financial repercussions of these circumstances <br>might burn a hole in your wallet. You may be required to use <br>your savings or your family's hard-earned money. Therefore, you <br>and your family have an urgent need for insurance to provide <b>adequate<br>protection and financial support</b> against any risks associated <br>with your life, health, and property.";
     }else if(strcmp(inputuser, "3")==0){
-        //output = "";
+        return recominsure(inputuser);
     }
     return output;
 }
@@ -227,7 +255,7 @@ const char * retireAns(char * inputuser){
     }else if(strcmp(inputuser, "2")==0){
         output = "Setting financial milestones is important. Your goals will help you <br>make the right decisions and achieve financial security. You're probably <br>saving for a house, a car, and your child's education as a young professional.  <br><b><i>PISO also wants to remind you that you too should save up for your retirement.</i></b><br><br>Small investments today will give higher returns than massive investments<br>in the future. Early preparedness will provide you more flexibility in a medical <br>emergency or a crisis like COVID-19. <br><br><b>How can you develop a retirement fund? <br>PISO is here to guide you and let you know of the following: </b><br><br><b>1. SET RETIREMENT GOALS.</b><br>What's your retirement age? What properties do you want to have? <br>These questions help you set retirement goals. Knowing your goals at a <br>specific age will guide your professional and financial decisions.<br><br><b>2. KNOW WHAT KIND OF LIFESTYLE YOU WANT.</b><br>Lifestyle choices impact future expenditure demands.<br>If you want to travel and mark off bucket list items later in life, you must earn more or save earlier. <br><br><b>3. INSURANCE PROTECTS INCOME.</b><br>A safety net can help ensure a happy and comfortable future. <br>Some insurance policies offer premium coverage and investment earnings.<br>Consider insuring your other assets outside yourself and your family. <br>Having your home or car insured helps limit losses in an emergency or breakdown.<br><br><b>4. CONSIDER MEDICAL COSTS.</b><br>Age causes health problems. If you have medical conditions, consider potential <br>expenses that you might need in the future. Eating healthy and exercising <br> will help you avoid expensive hospital bills, but health insurance is also beneficial. <br><br><b>5. DIVERSIFY YOUR INVESTMENTS.</b><br>Even if a stock seems attractive, don't put all your money in it <br>in case it goes bad. Diversify your investments to combat this. Having high, <br>medium, and low-risk assets will maintain your financial stability even if one fails. <br><br><b>6. ADAPT YOUR STRATEGY TO YOUR TIME HORIZON.</b><br>Current and ideal retirement ages will guide your plan. <br>Younger professionals have time to recuperate from a disastrous investment, <br>so they're more risk tolerant. Professionals who start retirement planning after <br>40 must invest safely. Your time horizon will assist you choose the best strategies. <br><br>";
     }else if(strcmp(inputuser, "3")==0){
-        //output = "";
+        return recomretire(inputuser);
     }
     return output;
 }
@@ -241,7 +269,7 @@ const char * remitAns(char * inputuser){
     }else if(strcmp(inputuser, "3")==0){
         output = "Generally, remittances can be done by visiting the nearest money remittance center<br>and also can be done online through mobile application. <br><br><b>In sending or receiving remittances, make sure to provide the following: </b><br><b>OVER THE COUNTER:</b><br><ul><li>Moving expenses</li><li>Filled-out money send or receiving form</li><li>Valid ID</li><li>Cash (for sender)</li></ul><b>ONLINE</b><br><ul><li>Bank account, credit card or debit card</li><li>Email</li><li>Valid ID</li><li>Personal account provided by the money remittance service provider</li></ul><br>Requirements may vary depending on the service provider. Banks are now elevating their services<br>by providing remittance services that will be valuable to their customers. <br><b>Provided on the links below are some services offered by banks here in the Philippines:</b><br><ul><li><b><a href = \"https://www.landbank.com/remittance\">Landbank of the Philippines</a></b></li><li><b><a href = \"https://www.bdo.com.ph/personal/remittance-services\">BDO</a></b></li><li><b><a href = \"https://www.metrobank.com.ph/manage/remittance-services\">Metrobank</a></b></li></ul><br><b><i>PISO wants to assist you in managing your finances so that your hard-earned money is not wasted. Send and receive money transfers responsibly!</i></b>";
     }else if(strcmp(inputuser, "4")==0){
-        //output = "";
+        return recomremit(inputuser);
     }
     return output;
 }

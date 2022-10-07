@@ -11,7 +11,12 @@ app.use(express.json())
 
 app.get('/info', (req,res)=>{
     if(userchat != "exit"){
-        stagecount = stagecount + 1;
+        if(userchat != "back"){
+            stagecount = stagecount + 1;
+        }else{
+            stagecount = stagecount - 1;
+        }
+        
         const answer = lib.mainfunc(userchat,stagecount);
         res.status(200).json({info: answer})
     }
