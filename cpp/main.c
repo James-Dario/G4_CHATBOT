@@ -232,41 +232,143 @@ const char * remitAns(char * inputuser){
     return output;
 }
 
+
 const char * recomm(char * inputuser){
+
     char * output = "";
-    if(strcmp(background, "student")==0){
-        
+    if(strcmp(mainChoi, "loans")==0){
+        return recomloans(inputuser);
     }
-    else if(strcmp(background, "farmer")==0){
-
+    else if(strcmp(mainChoi, "cards")==0){
+        return recomcards(inputuser);
     }
-    else if(strcmp(background, "working")==0){
-
+    else if(strcmp(mainChoi, "savings")==0){
+        return recomsavings(inputuser);
     }
-    else if(strcmp(background, "retiree")==0){
-
+    else if(strcmp(mainChoi, "investments")==0){
+        return recominvest(inputuser);
+    }
+    else if(strcmp(mainChoi, "insurance")==0){
+        return recominsure(inputuser);
+    }
+    else if(strcmp(mainChoi, "retirement")==0){
+        return recomretire(inputuser);
+    }
+    else if(strcmp(mainChoi, "remittances")==0){
+        return recomremit(inputuser);
     }
     return output;
 }
 
-const char * recomStud(char * inputuser){
+
+
+const char * recomloans(char * inputuser){
     char * output = "";
-    if(strcmp(mainChoi, "loans")==0){
+    
+    if(strcmp(background, "student")==0){
         output = "";
     }
-    else if(strcmp(mainChoi, "cards")==0){
+    else if(strcmp(background, "farmer")==0){
+        output = "";    
+    }
+    else if(strcmp(background, "working")==0){
         output = "";
     }
-    else if(strcmp(mainChoi, "investments")==0){
+    else if(strcmp(background, "retiree")==0){
         output = "";
     }
-    else if(strcmp(mainChoi, "insurance")==0){
+
+    return output;
+}
+
+const char * recomcards(char * inputuser){
+    char * output = "";
+    
+    if(strcmp(background, "student")==0){
         output = "";
     }
-    else if(strcmp(mainChoi, "retirement")==0){
+    else if(strcmp(background, "farmer")==0){
+        output = "" ;      
+    }
+    else if(strcmp(background, "working")==0){
         output = "";
     }
-    else if(strcmp(mainChoi, "remittances")==0){
+    else if(strcmp(background, "retiree")==0){
         output = "";
     }
+
+    return output;
+}
+
+const char * recomsavings(char * inputuser){
+    char * output = "";
+    
+    if(strcmp(background, "student")==0){
+        output = "";
+    }
+    else if(strcmp(background, "farmer")==0 || strcmp(background, "working")==0){
+        output = "";    
+    }
+    else if(strcmp(background, "retiree")==0){
+        output = "";
+    }
+
+    return output;
+}
+
+
+const char * recominvest(char * inputuser){
+    char * output = "";
+    
+    if(strcmp(background, "student")==0){
+        output = "";
+    }
+    else if(strcmp(background, "farmer")==0 || strcmp(background, "working")==0){
+        output = "";    
+    }
+    else if(strcmp(background, "retiree")==0){
+        output = "";
+    }
+
+    return output;
+}
+
+
+const char * recominsure(char * inputuser){
+    char * output = "";
+    
+    if(strcmp(background, "student")==0){
+        output = "";
+    }
+    else if(strcmp(background, "farmer")==0){
+        output = "" ;      
+    }
+    else if(strcmp(background, "working")==0){
+        output = "";
+    }
+    else if(strcmp(background, "retiree")==0){
+        output = "";
+    }
+
+    return output;
+}
+
+const char * recomretire(char * inputuser){
+    char * output = "";
+    
+    if(strcmp(background, "student")==0 || strcmp(background, "farmer")==0 || strcmp(background, "working")==0){
+        output = "";
+    }
+    else if(strcmp(background, "retiree")==0){
+        output = "";
+    }
+
+    return output;
+}
+
+
+
+const char * recomremit(char * inputuser){
+    char * output = "";
+    return output;
 }
