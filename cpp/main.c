@@ -3,6 +3,7 @@ const char * askname(char * name);
 const char * question(char * inputuser);
 
 int currentstage = 0;
+char * background = "";
 //gcc -c -Wall -Werror -fpic main.c
 //gcc -shared -o ./dll/main.dll main.o
 
@@ -13,15 +14,7 @@ const char * mainfunc(char * inputuser, int stage){
     }
     else if (stage == 2){
         return question(inputuser);
-    }else if (stage == 3){
-        if(strcmp(inputuser,"1")==0){
-            return "A";
-        }else{
-            return  "B";
-        }
     }
-    
-    
     return "Hello";
 }
 
