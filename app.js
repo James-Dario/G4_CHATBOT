@@ -39,9 +39,6 @@ app.listen(port,() => console.log('server has started on port: ${port}'))
 
 const ffi = require("ffi-napi");
 const lib = new ffi.Library("./cpp/dll/main", {
-    "loans": [
-        "string", ["string","int"]
-    ],
     "mainfunc":[
         "string", ["string","int"]
     ]

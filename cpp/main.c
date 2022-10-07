@@ -33,4 +33,11 @@ const char * question(char * inputuser){
 }
 
 
+void askbackground(char * inputuser){
 
+    if(strcmp(inputuser,"A")==0){
+        background="student";
+    }
+
+
+}
