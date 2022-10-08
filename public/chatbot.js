@@ -34,8 +34,6 @@ const renderChatbotResponse = (userInput) =>{
         //const res = getChatbotResponse(userInput);
         renderMessageElement(greply);
         greply = ""
-
-
         console.log(stage)
         if(stage == 4){
             const messageElement = document.createElement("div");
