@@ -129,6 +129,7 @@ body{
     transform: translate(-50%);
     animation: fade-in-left .3s ease-in-out both;
     opacity: 0;
+    
 }
 
 .cusIndent{
