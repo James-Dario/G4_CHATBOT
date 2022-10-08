@@ -22,6 +22,20 @@ body{
     border-radius: 10px 10px 10px 10px;
 }
 
+.reload{
+    display:flex;
+    height:55px;
+    width:55px;
+    position: absolute;
+    left: 1160px;
+    top: 80px;
+}
+
+.reload img{
+    height: 100%;
+    width: 100%;
+}
+
 .chat-header{
     border-radius: 10px 10px 0 0;
     height:60px;
