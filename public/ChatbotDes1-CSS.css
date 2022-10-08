@@ -117,6 +117,10 @@ body{
     opacity: 0;
 }
 
+.cusIndent{
+    padding-left: 30px;
+}
+
 .chat-body .loading{
     position: absolute;
     bottom: 5%;
