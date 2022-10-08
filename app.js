@@ -11,15 +11,27 @@ app.use(express.json())
 
 
 app.get('/info', (req,res)=>{
-    if(userchat != "exit"){
-        if(userchat === "back" || userchat === "yes"){
+    if(userchat != "exit"){ 
+        if(userchat === "B" || userchat==="b"){
             stagecount = stagecount - 1;
+            console.log("temp"+temp+"stage"+stagecount);
             const answer = lib.mainfunc(temp,stagecount);
             res.status(200).json({info: answer})
-        }else{
+        }else if(userchat === "Y" || userchat==="y"){
+            stagecount = stagecount - 1;
+            console.log("temp"+temp+"stage"+stagecount);
+            var tnumber = parseInt(temp)-1
+            console.log("tnumber" + tnumber.toString(10));
+            const answer = lib.mainfunc(temp,stagecount);
+            res.status(200).json({info: answer})
+        }
+        else if(userchat != "reset"){
+            if(stagecount == 2){
+                temp = userchat;
+                console.log("saving" + temp)
+            }
             stagecount = stagecount + 1;
             console.log(stagecount);
-            temp = userchat;
             const answer = lib.mainfunc(userchat,stagecount);
             res.status(200).json({info: answer})
         }
@@ -33,6 +45,13 @@ app.post('/', (req,res) =>{
     const {parcel} = req.body
     userchat=parcel
     //console.log(parcel)
+    if(userchat == "reset"){
+        
+        const answer = lib.resetfunc("reset");
+        console.log("reset");
+        stagecount = 0;
+        return res.status(200).send({status:'reset'})
+    }
     if (!parcel){
         return res.status(400).send({status:"failed"})
     }

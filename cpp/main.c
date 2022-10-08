@@ -31,9 +31,10 @@ const char * recomremit(char * inputuser);
 const char * getquestion(char * inputuser);
 
 int currentstage = 0;
-char * background = "";
+char * background = "none";
 char * username = "";
 char * mainChoi = "";
+char * tempback = "";
 //gcc -c -Wall -Werror -fpic main.c
 //gcc -shared -o ./dll/main.dll main.o
 
@@ -45,6 +46,7 @@ const char * mainfunc(char * inputuser, int stage){
         return askname(inputuser); 
     }
     else if (stage == 2){
+        
         return question(inputuser);
     }
     else if (stage == 3){
@@ -58,7 +60,8 @@ const char * mainfunc(char * inputuser, int stage){
 }
 
 const char * resetfunc(char * inputuser){
-
+    background = "none";
+    tempback = "resets";
     return "Resetting...";
 }
 
@@ -71,8 +74,13 @@ const char * askname(char * inputname){
 }
 
 const char * question(char * inputuser){
+    background="none";
+    if(strcmp(background,"none")==0 || strcmp(tempback,"resets")){
+        askbackground(inputuser);
+    }
     char * output = "What do you want to know? <i>Please enter the number besides your answer.</i> <br>1. LOANS 💸</br> <br>2. CARDS💳</br> <br>3. SAVINGS ACCOUNT🏧</br> <br>4. INVESTMENTS💰</br> <br>5. INSURANCES📃</br> <br>6. RETIREMENT PLANS👴👵</br> <br>7. REMITTANCES📨</br>";
-    askbackground(inputuser);
+
+    
     return output;
 }
 

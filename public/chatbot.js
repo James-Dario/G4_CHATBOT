@@ -2,11 +2,12 @@ const chatBody = document.querySelector(".chat-body");
 const txtInput = document.querySelector("#txtinput");
 const sendB = document.querySelector(".send");
 const loadingElement = document.querySelector(".loading");
-
+const reloadB = document.querySelector(".reload");
 
 sendB.addEventListener("click", postInfo);
 sendB.addEventListener("click", getInfo);
 sendB.addEventListener("click", () => renderUserMessage());
+
 
 
 txtInput.addEventListener("keyup", ()=>{
@@ -38,7 +39,7 @@ const renderChatbotResponse = (userInput) =>{
         if(stage == 4){
             const messageElement = document.createElement("div");
             //const txtNode = document.createTextNode(txt); 
-            messageElement.innerHTML = "Do you want to continue?";   
+            messageElement.innerHTML = "Do you want to continue? (Y/N)";   
             messageElement.classList.add('chatbot-message');    
             //messageElement.append(txtNode);     
             chatBody.append(messageElement)
@@ -99,6 +100,23 @@ var greply = "";
 
 const baseUrl = 'http://localhost:8383/'        
 
+
+
+reloadB.addEventListener("click", (e)=>{
+    e.preventDefault()
+    const res = fetch(baseUrl,{
+        method:'POST',
+        headers:{
+            "content-Type":'application/json'
+        },
+        body:JSON.stringify({
+            parcel:"reset"
+        })
+    })
+    stage = 0;
+
+    window.location.reload();
+});
 
 async function getInfo(e){
     if (txtInput.value === "back"|| txtInput.value === "yes"){
