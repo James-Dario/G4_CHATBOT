@@ -32,7 +32,7 @@ app.get('/info', (req,res)=>{
 app.post('/', (req,res) =>{
     const {parcel} = req.body
     userchat=parcel
-    console.log(parcel)
+    //console.log(parcel)
     if (!parcel){
         return res.status(400).send({status:"failed"})
     }
@@ -40,7 +40,7 @@ app.post('/', (req,res) =>{
 })
 
 
-app.listen(port,() => console.log('server has started on port: ${port}'))
+app.listen(port,() => console.log('server has started on port: 8383'))
 
 
 
@@ -51,6 +51,9 @@ const ffi = require("ffi-napi");
 const lib = new ffi.Library("./cpp/dll/main", {
     "mainfunc":[
         "string", ["string","int"]
+    ],
+    "resetfunc":[
+        "string", ["string"]
     ]
 });
 

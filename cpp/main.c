@@ -40,7 +40,6 @@ char * mainChoi = "";
 const char * mainfunc(char * inputuser, int stage){
 
 
-
     if(stage == 1){
         username = inputuser;
         return askname(inputuser); 
@@ -58,6 +57,10 @@ const char * mainfunc(char * inputuser, int stage){
     return "Hello";
 }
 
+const char * resetfunc(char * inputuser){
+
+    return "Resetting...";
+}
 
 
 
