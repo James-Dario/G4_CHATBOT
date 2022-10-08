@@ -39,7 +39,7 @@ const renderChatbotResponse = (userInput) =>{
         if(stage == 4){
             const messageElement = document.createElement("div");
             //const txtNode = document.createTextNode(txt); 
-            messageElement.innerHTML = "Do you want to continue? (Y/N)";   
+            messageElement.innerHTML = "Do you want to continue? (Y/N) or go back to the menu? (B)";   
             messageElement.classList.add('chatbot-message');    
             //messageElement.append(txtNode);     
             chatBody.append(messageElement)

@@ -13,7 +13,7 @@ app.use(express.json())
 app.get('/info', (req,res)=>{
     if(userchat != "exit"){ 
         if(userchat === "B" || userchat==="b"){
-            stagecount = stagecount - 1;
+            stagecount = stagecount - 2;
             console.log("temp"+temp+"stage"+stagecount);
             const answer = lib.mainfunc(temp,stagecount);
             res.status(200).json({info: answer})
@@ -24,6 +24,8 @@ app.get('/info', (req,res)=>{
             console.log("tnumber" + tnumber.toString(10));
             const answer = lib.mainfunc(temp,stagecount);
             res.status(200).json({info: answer})
+        }else if(userchat === "N"|| userchat === "n"){
+            res.status(200).json({info: "<b>I hope you learned something😊💗 Thank you and have a nice day!</b>"})
         }
         else if(userchat != "reset"){
             if(stagecount == 2){
