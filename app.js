@@ -5,8 +5,8 @@ const port = 8383
 var userchat = "";
 var stagecount = 0;
 var temp = "";
-var background = ""
-
+var background = "none"
+var tempback = "none";
 app.use(express.static('public'))
 app.use(express.json())
 
@@ -14,9 +14,10 @@ app.use(express.json())
 app.get('/info', (req,res)=>{
     if(userchat != "exit"){ 
         if(userchat === "B" || userchat==="b"){
-            stagecount = stagecount - 2;
-            console.log("background"+temp+"stage"+stagecount);
-            const answer = lib.mainfunc(background,2);
+            stagecount = 2;
+            console.log("background"+background+"stage"+stagecount);
+            const answer = lib.mainfunc(tempback,2);
+            background = "none";
             res.status(200).json({info: answer})
         }else if(userchat === "Y" || userchat==="y"){
             stagecount = stagecount - 1;
@@ -29,16 +30,20 @@ app.get('/info', (req,res)=>{
         else if(userchat != "reset"){
             if(stagecount == 1){
                 background = userchat;
-                console.log("saving back" + background)
+                tempback = userchat;
+                console.log("saving back" + tempback)
             }
             if(stagecount == 2){
+                console.log('check background'+tempback)
+                background = tempback;
                 temp = userchat;
                 console.log("saving" + temp)
             }
-            console.log("temp"+temp+"stage"+stagecount);
             stagecount = stagecount + 1;
-            console.log(stagecount);
-            console.log("stage" + stagecount)
+            console.log("temp"+temp+"stage"+stagecount);
+            console.log("question")
+            //console.log(stagecount);
+            //console.log("stage" + stagecount)
             const answer = lib.mainfunc(userchat,stagecount);
             res.status(200).json({info: answer})
         }

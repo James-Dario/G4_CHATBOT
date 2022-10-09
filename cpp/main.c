@@ -127,25 +127,25 @@ void askbackground(char * inputuser){
 
 const char * askchoice(char * inputuser){
 
-    if(strcmp(mainChoi,"loans")==0 || strcmp(inputuser,"1")==0){
+    if(strcmp(inputuser,"1")==0){
         mainChoi="loans";
         return loanChoi(inputuser);
-    }else if (strcmp(mainChoi,"cards")==0 || strcmp(inputuser,"2")==0){
+    }else if (strcmp(inputuser,"2")==0){
         mainChoi="cards";
         return cardChoi(inputuser);
-    }else if (strcmp(mainChoi,"savings")==0 || strcmp(inputuser,"3")==0){
+    }else if (strcmp(inputuser,"3")==0){
         mainChoi="savings";    
         return saviChoi(inputuser);
-    }else if (strcmp(mainChoi,"investments")==0 || strcmp(inputuser,"4")==0){
+    }else if (strcmp(inputuser,"4")==0){
         mainChoi="investments";   
         return investChoi(inputuser); 
-    }else if (strcmp(mainChoi,"insurance")==0 || strcmp(inputuser,"5")==0){
+    }else if (strcmp(inputuser,"5")==0){
         mainChoi="insurance";  
         return insureChoi(inputuser);  
-    }else if (strcmp(mainChoi,"retirement")==0 || strcmp(inputuser,"6")==0){
+    }else if (strcmp(inputuser,"6")==0){
         mainChoi="retirement";    
         return retireChoi(inputuser);
-    }else if (strcmp(mainChoi,"remittances")==0 || strcmp(inputuser,"7")==0){
+    }else if (strcmp(inputuser,"7")==0){
         mainChoi="remittances";    
         return remitChoi(inputuser);
     }
