@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8383
+const port = process.env.PORT || 8383
 
 var userchat = "";
 var stagecount = 0;
@@ -71,7 +71,7 @@ app.post('/', (req,res) =>{
 })
 
 
-app.listen(port,() => console.log('server has started on port: 8383'))
+app.listen(port,() => console.log(`server has started on port: ${8383}`))
 
 
 
