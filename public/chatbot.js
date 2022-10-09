@@ -34,16 +34,23 @@ const renderUserMessage = () => {
 const renderChatbotResponse = (userInput) =>{
         //const res = getChatbotResponse(userInput);
         renderMessageElement(greply);
-        greply = ""
+        
         console.log(stage)
-        if(stage == 4){
-            const messageElement = document.createElement("div");
-            //const txtNode = document.createTextNode(txt); 
-            messageElement.innerHTML = "Do you want to continue? (Y/N) or go back to the menu? (B)";   
-            messageElement.classList.add('chatbot-message');    
-            //messageElement.append(txtNode);     
-            chatBody.append(messageElement)
+        if(stage >= 4){
+            if(greply === "b" || greply === "B"){
+                greply = ""
+            }else if(greply !== "Y" || greply !=="y"){
+                const messageElement = document.createElement("div");
+                //const txtNode = document.createTextNode(txt); 
+                messageElement.innerHTML = "Do you want to continue? (Y/N) or go back to the menu? (B)";   
+                messageElement.classList.add('chatbot-message');    
+                //messageElement.append(txtNode);    
+                chatBody.append(messageElement)
+                
+            }
+            
         }
+        greply = ""
 };
 
 const renderMessageElement = (txt, type) => {       
@@ -98,7 +105,8 @@ const reply = document.getElementById('reply')
 var stage = 0;
 var greply = "";
 
-const baseUrl = 'http://localhost:8383/'        
+const url = window.location.origin
+const baseUrl = url.concat('/');   
 
 
 
@@ -119,8 +127,10 @@ reloadB.addEventListener("click", (e)=>{
 });
 
 async function getInfo(e){
-    if (txtInput.value === "back"|| txtInput.value === "yes"){
+    if (txtInput.value === "back"|| txtInput.value === "y" ||txtInput.value === "Y"){
         stage = stage - 1;
+    }else if(txtInput.value === "B" ||txtInput.value === "b" ){
+        stage = stage - 2
     }else{
         stage = stage + 1;
         if(stage ==1){
