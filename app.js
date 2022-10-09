@@ -7,7 +7,8 @@ var stagecount = 0;
 var temp = "";
 var background = "none"
 var tempback = "none";
-//app.use(express.static('public'))
+
+app.use(express.static('public'))
 app.use(express.json())
 
 
