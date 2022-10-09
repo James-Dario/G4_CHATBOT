@@ -105,7 +105,7 @@ var stage = 0;
 var greply = "";
 
 const url = window.location.origin
-const baseUrl = url.concat('/');   ss
+const baseUrl = url.concat('/');
 
 
 
