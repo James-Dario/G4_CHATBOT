@@ -8,10 +8,12 @@ sendB.addEventListener("click", postInfo);
 sendB.addEventListener("click", getInfo);
 sendB.addEventListener("click", () => renderUserMessage());
 
+var yesno = "";
 
 
 txtInput.addEventListener("keyup", ()=>{
     if(event.keyCode === 13){
+        
         renderUserMessage();
     }
 });
@@ -19,7 +21,10 @@ txtInput.addEventListener("keyup", ()=>{
 var nameuser = "";
 
 const renderUserMessage = () => {
+    
     const userInput = txtInput.value;
+    yesno = userInput;
+    console.log(yesno);
     renderMessageElement(userInput, "user");
     txtInput.value = "";
     toggleLoading(false);
@@ -40,12 +45,19 @@ const renderChatbotResponse = (userInput) =>{
             if(greply === "b" || greply === "B"){
                 greply = ""
             }else if(greply !== "Y" || greply !=="y"){
-                const messageElement = document.createElement("div");
-                //const txtNode = document.createTextNode(txt); 
-                messageElement.innerHTML = "Do you want to continue? (Y/N) or go back to the menu? (B)";   
-                messageElement.classList.add('chatbot-message');    
-                //messageElement.append(txtNode);    
-                chatBody.append(messageElement)
+
+                if(yesno === "n" || yesno === "N"){
+                    console.log("yes")
+                }else{
+                    console.log("no")
+                    const messageElement = document.createElement("div");
+                    //const txtNode = document.createTextNode(txt); 
+                    messageElement.innerHTML = "Do you want to continue? (Y/N) or go back to the menu? (B)";   
+                    messageElement.classList.add('chatbot-message');    
+                    //messageElement.append(txtNode);    
+                    chatBody.append(messageElement)
+                }
+                
                 
             }
             
